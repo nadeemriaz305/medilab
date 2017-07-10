@@ -1,0 +1,195 @@
+﻿@model Web_Project.Model.patient
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="/Images/apple-icon.png">
+	<link rel="icon" type="image/png" href="/Images/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Home | New Patient</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+	<link rel="stylesheet" href="/Content/fonts/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/material-kit.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/style_home.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/dropdown.css">
+
+</head>
+
+<body class="signup-page">
+	       <nav class="navbar navbar-default navbar-fixed-top" style="background-color:RGBA(13, 70, 83, 0.78);">
+			 <div class="container">
+			  	<div class="col-md-12">
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a class="navbar-brand" href="#"><img src="~/Images/logo.png" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
+				    </div>
+				    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+				      <ul class="nav navbar-nav">
+				      <li class=""><a href="/Home/Logout">Logout</a></li>
+				       </ul>
+				      <div class="dropdown">    
+				        <ul class="nav navbar-nav"><li class="dropbtn active">Manage Patient</li></ul>
+                        <div class="dropdown-content">
+                            <a href="/Home/addnewpatient">Add New Patient</a>
+				            <a href="/Home/SearchExistPatient">Search Patient</a>
+				          </div>
+                      </div>  
+                      <div class="dropdown">    
+				        <ul class="nav navbar-nav"><li class="dropbtn active">Admin</li></ul>
+                        <div class="dropdown-content">
+                            <a href="/Admin/AddNewTest">New Test</a>
+				            <a href="/Admin/editexisttest">Edit Test</a>
+				            <a href="/Admin/deleteexisttest">Delete Test</a>
+                            <a href="/Admin/alltestrates">View ALL</a>
+                          </div>
+                      </div>  
+				    </div>
+				</div>
+			  </div>
+			</nav>
+			
+    <div class="wrapper">
+		<div class="header header-filter" style="background-image: url('/Images/city.jpg'); background-size: cover; background-position: top center;background-color:RGBA(13, 70, 83, 0.78);">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+						<div class="card card-signup">
+							@using (Html.BeginForm()){
+                            	<div class="header header-primary text-center"  style="background-color:RGBA(13, 70, 83, 0.78);">
+									<h4 style="color:white">Add New Patient</h4>
+								</div>
+								<p class="text-divider">Or Be Classical</p>
+								<div class="content">
+
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">face</i>
+										</span>
+                                        @Html.TextBoxFor(model => model.patient_name, new { @class="form-control", placeholder = "Patient Name" ,id="patientname"} )
+									    @Html.ValidationMessageFor(model => model.patient_name ,"", new { @class = "text-danger" , id="patient_name_error" })
+                                    </div>
+                                    <div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">phone</i>
+										</span>
+									    @Html.TextBoxFor(model => model.patient_phone, new { @class="form-control", placeholder = "Patient Phone" ,id="patientphone"} )
+									    @Html.ValidationMessageFor(model => model.patient_phone, "", new { @class = "text-danger" , id="patient_phone_error" })
+                                        @{
+                                           
+                                           if (Model != null && Model.patient_phone.Length != 11)
+                                           {
+                                                <script >
+                                                    $("patient_phone_error").text("Phone#:03121234567");
+                                                    $("patient_phone_error").show();
+                                                </script>
+                                           }
+                                        }
+                                    </div>
+
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">face</i>
+										</span>
+									    @Html.TextBoxFor(model => model.patient_age, new { @class="form-control", placeholder = "Patient Age",id="patientage"} )
+									    @Html.ValidationMessageFor(model => model.patient_age,"", new { @class = "text-danger" , id="patient_age_error" })
+                                    </div>
+
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons"></i>
+										</span>
+                                        <div class="radio">
+								            <label>
+									           @Html.RadioButtonFor(m => m.patient_gender,"Male" ,  new { @checked = "checked" ,@required  = "required"}) 
+									            Male
+								            </label>
+							            </div>
+							            <div class="radio">
+								            <label>
+                                               @Html.RadioButtonFor(m => m.patient_gender,"Female") 
+									            Female
+								            </label>
+							            </div>
+                                    
+                                    </div>
+								</div>
+								<div class="footer text-center">
+                                    <input type="submit" id="submit" class="btn btn-simple btn-primary btn-lg" value="Add New Patient" />
+								    <br />
+                                </div>
+                                }
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<footer class="footer">
+		        <div class="container">
+		            <nav class="pull-left">
+						<ul>
+							<li>
+								<a href="http://www.creative-tim.com">
+									Creative Tim
+								</a>
+							</li>
+							<li>
+								<a href="http://presentation.creative-tim.com">
+								   About Us
+								</a>
+							</li>
+							<li>
+								<a href="http://blog.creative-tim.com">
+								   Blog
+								</a>
+							</li>
+							<li>
+								<a href="http://www.creative-tim.com/license">
+									Licenses
+								</a>
+							</li>
+						</ul>
+		            </nav>
+		            <div class="copyright pull-right">
+		                &copy; 2016, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com" target="_blank">Creative Tim</a>
+		            </div>
+		        </div>
+		    </footer>
+
+		</div>
+
+    </div>
+
+
+</body>
+	<!--   Core JS Files   -->
+	<script src="/Script/jquery.min.js" type="text/javascript"></script>
+	<script src="/Script/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/Script/material.min.js"></script>
+
+	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="/Script/nouislider.min.js" type="text/javascript"></script>
+
+	<!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
+	<script src="/Script/bootstrap-datepicker.js" type="text/javascript"></script>
+
+	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+	<script src="/Script/material-kit.js" type="text/javascript"></script>
+    <script src="~/Script/jquery.easing.min.js"></script>
+    <script src="~/Script/custom.js"></script>
+    <script src="~/Script/Home/addnewpatient.js"></script>
+
+</html>

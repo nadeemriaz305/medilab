@@ -1,0 +1,156 @@
+﻿<!doctype html>
+<html>
+<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/style.css" rel="stylesheet">
+	<script src="~/Script/jquery.min.js"></script>
+	<script type="text/javascript" src="~/Script/delete_test.js"></script>
+	<script type="text/javascript" src="~/Script/bootstrap.min.js"></script>
+
+</head>
+
+<body  style="font-family:PT Sans">
+	<!-- <% include file="menu.jsp"%> -->
+    <div class="" style="width:100%;height:30px;background-color:#0C090A;color:white;padding-left:20px;padding-top:1px;font-size:17px;">
+		NexusPro - The ultimate solution for THE MEDICAL LABORATORIES(PVT)
+	</div>	
+		
+	<div class = "header" >
+		<div class="menu">
+			<ul class = "header_menu_list">
+				<li><a href="dashboard.jsp" >Dashboard</a></li>
+				<li><a href="add_test.jsp" >Admin</a></li>
+				<li><a href="logout.jsp" >Logout</a></li>
+			</ul>
+
+		</div>
+	</div>
+	<div class="" style="width:100%;height:30px;background-color:#E9E9E9;color:grey;padding-left:50px;padding-top:1px;font-size:13px;">
+		<strong>Admin</strong>
+	</div>	
+	
+	<div class="" style="width:100%;height:30px;color:black;padding-left:50px;padding-top:12px;font-size:17px;">
+		<strong>Delete Existing Test</strong>
+	</div>	
+	
+	<!-- <% include file="test_menu.jsp"%> -->
+    
+<div class="" style="width:100%;height:30px;color:black;padding-left:50px;padding-top:12px;font-size:17px;">
+		<a href="add_test.jsp"><div style="width:170px;height:70px;border:1px solid #E9E9E9;color:black;">
+			<table >
+				<tr>
+					<td><img src="~/Images/search_icon.png" style="width:50px;height:70px;"/></td>
+					<td style="background:#E9E9E9;width:120px;padding-left:10px;">
+						<h5><strong>Add Tests</strong></h5>
+						<h6 style="font-size:9px;">Add New Test</h6>
+					</td>
+				</tr>
+			</table>
+		</div></a>
+
+		<a href="edit_test.jsp"><div style="width:170px;height:70px;border:1px solid #E9E9E9;color:black;margin-left:190px;margin-top:-70px;">
+			<table >
+				<tr>
+					<td><img src="~/Images/user_icon.png" style="width:50px;height:70px;"/></td>
+					<td style="background:#E9E9E9;width:120px;padding-left:10px;">
+						<h5><strong>Edit Test</strong></h5>
+						<h6 style="font-size:9px;">Edit Existing Test</h6>
+					</td>
+				</tr>
+			</table>
+		</div></a>	
+
+		<a href="delete_test.jsp"><div style="width:170px;height:70px;border:1px solid #E9E9E9;color:black;margin-left:380px;margin-top:-70px;">
+			<table >
+				<tr>
+					<td><img src="~/Images/search_icon.png" style="width:50px;height:70px;"/></td>
+					<td style="background:#E9E9E9;width:120px;padding-left:10px;">
+						<h5><strong>Delete Test</strong></h5>
+						<h6 style="font-size:9px;">Delete Existing Test</h6>
+					</td>
+				</tr>
+			</table>
+		</div></a>	
+
+
+		<a href="view_test.jsp"><div style="width:170px;height:70px;border:1px solid #E9E9E9;color:black;margin-left:570px;margin-top:-70px;">
+			<table >
+				<tr>
+					<td><img src="~/Images/test.png" style="width:50px;height:70px;"/></td>
+					<td style="background:#E9E9E9;width:120px;padding-left:10px;">
+						<h5><strong>View Test</strong></h5>
+						<h6 style="font-size:9px;">Search and Check Tests</h6>
+					</td>
+				</tr>
+			</table>
+		</div></a>	
+
+	<div class="" style="width:95%;height:30px;background-color:#14394A;color:white;padding-left:5px;padding-top:1px;font-size:13px;margin-top:20px;">
+		<table >
+			<tr>
+				<td><img src="search_icon.png" style="width:20px;height:30px;"/></td>
+				<td style="padding-left:10px;height:30px;">
+					<h5><strong>Search Criteria</strong></h5>
+				</td>	
+			</tr>
+		</table>
+	</div>	
+	<div class="" style="width:95%;height:170px;border:1px solid #E9E9E9;color:white;padding-left:5px;padding-top:1px;font-size:13px;">
+		<form action="delete_test_code.jsp" method="post">
+		<div style="margin:10px;margin-top:10px;text-align:center;border:1px solid black;height:130px;border-radius:5px;">	
+			<div style="background-color:#14394A;width:150px;margin-top:20px;height:35px;border:1px solid black;border-radius:5px;margin-left:-4px;">
+
+			</div>
+			<div style="background-color:#14394A;width:150px;margin-top:20px;height:35px;border:1px solid black;border-radius:5px;margin-left:-4px;">
+
+			</div>
+			<div style="background-color:#14394A;width:150px;margin-left:88%;margin-top:-90px;height:35px;border:1px solid black;border-radius:5px;">
+
+			</div>
+			<div style="background-color:#14394A;width:150px;margin-left:88%;margin-top:20px;height:35px;border:1px solid black;border-radius:5px;">
+
+			</div>
+			<div class="inner-addon left-addon" style="margin-top:-120px;margin-left:35%;">
+						<h3 style="margin-left:-60%;color:#14394A;"><strong>Enter Test ID</strong></h3>
+						<input type="text" class="form-control fields" style="width:40%;" placeholder="Test ID" name="id" id="id" />
+						<div id = "id_error" style="display:none;"><i class="glyphicon glyphicon-warning-sign " style="margin-left:270px;color:red;margin-top:35px;" ></i></div>
+					</div>
+			
+			<div class="inner-addon1 left-addon1" style=";margin-top:10px;">
+						<i class="glyphicon glyphicon-search" style="color:#14394A;margin-left:-20px;"></i>
+						<input type="submit" class="btn btn-default" onClick="return myFunction()" id = "submit" name="submit" value="Delete Test" style="margin-left:-30px;width:150px;font-family:courier;"/>
+			</div>		
+			
+		</div>
+		</form>
+	</div>	
+
+	<div class="" style="width:95%;height:30px;background-color:#14394A;color:white;padding-left:5px;padding-top:1px;font-size:13px;margin-top:20px;">
+		<table >
+			<tr>
+				<td><img src="~/Images/search_icon.png" style="width:20px;height:30px;"/></td>
+				<td style="padding-left:10px;height:30px;">
+					<h5><strong>Search Result</strong></h5>
+				</td>	
+			</tr>
+		</table>
+	</div>	
+	
+	<div class="" style="width:95%;height:170px;border:1px solid #E9E9E9;color:black;padding-left:5px;padding-top:1px;font-size:13px;">
+		<div style="margin:10px;margin-top:10px;text-align:center;height:130px;border-radius:5px;;border-radius:5px; overflow:auto">	
+			<table class="table"style="border:1px solid black;color:black;">
+				<tr>
+					<th>Test ID</th>
+					<th>Test Names</th>
+					<th>Test Rates</th>
+				</tr>
+				<!--<% include file="view_test_code.jsp"%>-->
+
+			</table>
+		</div>
+	</div>	
+
+	</div>	
+</body>	
+
+</html>
